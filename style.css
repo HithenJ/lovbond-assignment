@@ -25,6 +25,24 @@ body {
     line-height: 1.6;
     color: var(--text-dark);
     overflow-x: hidden;
+    width: 100%;
+}
+
+html {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .container {
@@ -937,6 +955,14 @@ body {
 
 /* Responsive */
 @media (max-width: 1024px) {
+    .container {
+        padding: 0 5%;
+    }
+
+    .hero {
+        padding: 80px 0 50px;
+    }
+
     .hero-images {
         display: none;
     }
@@ -946,12 +972,28 @@ body {
         text-align: center;
     }
 
+    .hero-title {
+        font-size: 2.8rem;
+    }
+
+    .hero-subtitle {
+        max-width: 100%;
+    }
+
     .hero-btns {
         justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn {
+        width: 100%;
+        max-width: 500px;
     }
 
     .stats-grid {
         grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
     }
 
     .info-card,
@@ -960,27 +1002,44 @@ body {
         padding: 20px;
     }
 
-    .card-image {
+    .card-image,
+    .info-card-reliable .card-image,
+    .info-card-smarter .card-image,
+    .info-card-applications .card-image {
         width: 100%;
+        flex: 0 0 auto;
         height: 250px;
     }
 
     .info-section,
-    .industries-section {
+    .industries-section,
+    .features-section,
+    .why-choose-section,
+    .testimonials-section,
+    .standards-section {
         padding: 50px 5%;
     }
 
     .section-title {
-        font-size: 1.8rem;
+        font-size: 2rem;
+    }
+
+    .section-subtitle {
+        font-size: 1rem;
     }
 
     .feature-card {
         width: 100%;
         max-width: 400px;
+        flex: 0 0 calc(50% - 15px);
     }
 
-    .features-section {
-        padding: 60px 5%;
+    .standards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .final-cta {
+        padding: 60px 5% 40px;
     }
 
     .final-cta-image {
@@ -989,37 +1048,399 @@ body {
 
     .final-cta-btns {
         flex-direction: column;
+        align-items: stretch;
+    }
+
+    .final-cta-btns .btn {
+        width: 100%;
     }
 
     .floating-bar {
         padding: 15px 5%;
     }
+
+    .floating-bar .container {
+        gap: 100px;
+    }
 }
 
 @media (max-width: 768px) {
+    .container {
+        padding: 0 4%;
+    }
+
+    .hero {
+        padding: 60px 0 40px;
+    }
+
+    .logo {
+        width: 120px;
+        margin-bottom: 30px;
+    }
+
     .hero-title {
-        font-size: 2.5rem;
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+
+    .hero-title br {
+        display: none;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+        margin-bottom: 30px;
+    }
+
+    .hero-subtitle br {
+        display: none;
+    }
+
+    .btn {
+        font-size: 1.1rem;
+        height: 70px;
+        padding: 0 25px;
+    }
+
+    .btn i {
+        font-size: 1.4rem;
+        margin-right: 12px;
+    }
+
+    .stats-section {
+        padding: 40px 0;
     }
 
     .stats-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .stat-value {
+        font-size: 0.9rem;
+    }
+
+    .stat-label {
+        font-size: 0.65rem;
     }
 
     .section-title {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
+        line-height: 1.3;
+    }
+
+    .section-subtitle {
+        font-size: 0.95rem;
+    }
+
+    .check-list li {
+        font-size: 0.9rem;
+        margin-bottom: 15px;
+    }
+
+    .btn-dark {
+        font-size: 1rem;
+        padding: 15px 30px;
+    }
+
+    .industries-container {
+        gap: 10px;
+    }
+
+    .industry-pill {
+        font-size: 0.85rem;
+        padding: 8px 16px;
+    }
+
+    .industry-pill img {
+        width: 16px !important;
+    }
+
+    .feature-card {
+        flex: 0 0 100%;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .feature-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .feature-card p {
+        font-size: 0.9rem;
+    }
+
+    .standards-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .standard-pill {
+        width: 100%;
+        font-size: 0.85rem;
+        padding: 10px 20px;
+        justify-content: center;
+    }
+
+    .final-cta {
+        padding: 50px 4% 30px;
     }
 
     .final-cta h2 {
-        font-size: 2rem;
+        font-size: 1.6rem;
     }
 
-    .floating-bar {
+    .final-cta p {
+        font-size: 0.95rem;
+    }
+
+    .final-cta-btns .btn {
+        font-size: 1rem;
+        height: 65px;
+        padding: 0 20px;
+    }
+
+    .floating-bar .container {
         flex-direction: column;
         gap: 15px;
         text-align: center;
     }
 
     .demo-text h4 {
+        font-size: 1.3rem;
+    }
+
+    .btn-book {
+        font-size: 1.2rem;
+        padding: 12px 30px;
+    }
+
+    .close-floating {
+        right: 15px;
+        top: -15px;
+        width: 35px;
+        height: 35px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 3%;
+    }
+
+    .hero {
+        padding: 40px 0 30px;
+    }
+
+    .logo {
+        width: 100px;
+        margin-bottom: 20px;
+    }
+
+    .hero-title {
+        font-size: 1.6rem;
+        margin-bottom: 15px;
+    }
+
+    .hero-subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 25px;
+    }
+
+    .btn {
+        font-size: 0.95rem;
+        height: 60px;
+        padding: 0 20px;
+    }
+
+    .btn i {
+        font-size: 1.2rem;
+        margin-right: 10px;
+    }
+
+    .btn img {
+        width: 22px !important;
+        margin-right: 10px !important;
+    }
+
+    .stats-section {
+        padding: 30px 0;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .stat-icon i,
+    .stat-icon span,
+    .stat-icon svg {
+        font-size: 24px !important;
+        width: 24px !important;
+        height: 24px !important;
+    }
+
+    .section-header {
+        margin-bottom: 20px;
+    }
+
+    .section-title {
         font-size: 1.4rem;
+        margin-bottom: 15px;
+    }
+
+    .section-subtitle {
+        font-size: 0.85rem;
+    }
+
+    .info-card {
+        padding: 15px;
+        margin-bottom: 30px;
+    }
+
+    .card-image {
+        height: 200px;
+    }
+
+    .check-list li {
+        font-size: 0.85rem;
+        gap: 10px;
+        margin-bottom: 12px;
+    }
+
+    .check-icon {
+        width: 16px;
+        height: 16px;
+    }
+
+    .btn-dark {
+        font-size: 0.9rem;
+        padding: 12px 25px;
+    }
+
+    .btn-dark img {
+        width: 20px !important;
+    }
+
+    .industry-pill {
+        font-size: 0.8rem;
+        padding: 7px 14px;
+    }
+
+    .industry-pill img {
+        width: 14px !important;
+    }
+
+    .mini-card-content {
+        padding: 20px;
+    }
+
+    .mini-card-content h3 {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+    }
+
+    .mini-card-content .check-list li {
+        font-size: 0.8rem;
+    }
+
+    .feature-icon-box {
+        width: 50px;
+        height: 50px;
+    }
+
+    .feature-icon-box img {
+        width: 28px !important;
+    }
+
+    .feature-card h3 {
+        font-size: 1rem;
+    }
+
+    .feature-card p,
+    .feature-benefit {
+        font-size: 0.85rem;
+    }
+
+    .choice-icon img {
+        width: 28px !important;
+    }
+
+    .choice-content h4 {
+        font-size: 1rem;
+    }
+
+    .choice-content p {
+        font-size: 0.85rem;
+    }
+
+    .testimonial-card {
+        padding: 20px;
+        min-width: 100%;
+    }
+
+    .testimonial-text {
+        font-size: 0.85rem;
+    }
+
+    .testimonial-author {
+        font-size: 0.9rem;
+    }
+
+    .final-cta {
+        padding: 40px 3% 25px;
+    }
+
+    .final-cta h2 {
+        font-size: 1.4rem;
+        margin-bottom: 15px;
+    }
+
+    .final-cta p {
+        font-size: 0.85rem;
+        margin-bottom: 15px;
+    }
+
+    .final-cta-btns {
+        margin-bottom: 10px;
+    }
+
+    .final-cta-btns .btn {
+        font-size: 0.9rem;
+        height: 55px;
+    }
+
+    .final-cta-tagline {
+        font-size: 0.8rem;
+    }
+
+    .copyright-bar {
+        font-size: 0.75rem;
+        padding: 12px 0;
+    }
+
+    .floating-bar {
+        padding: 12px 3%;
+    }
+
+    .floating-logo {
+        width: 90px;
+    }
+
+    .demo-text h4 {
+        font-size: 1.1rem;
+    }
+
+    .demo-text span {
+        font-size: 0.7rem;
+    }
+
+    .btn-book {
+        font-size: 1rem;
+        padding: 10px 25px;
+    }
+
+    .btn-book i {
+        font-size: 1rem;
     }
 }
